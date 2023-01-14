@@ -8,6 +8,7 @@ export const apiSlice = createApi({
 		// GET TODOS
 		getTodos: builder.query({
 			query: () => "/todos",
+			transformResponse: (res) => res.sort((a, b) => b.id - a.id),
 			providesTags: ["Todos"],
 		}),
 		// ADD TODO
